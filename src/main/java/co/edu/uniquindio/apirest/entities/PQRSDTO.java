@@ -1,42 +1,30 @@
 package co.edu.uniquindio.apirest.entities;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
-@Entity
-@Table(name="pqrs")
-public class PQRSDTO {
+public class PQRSDTO { //Aqui era el PQRS
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="fecha")
     private LocalDate fechaCreacion;
 
-    @Column(name="asunto")
     private String asunto;
 
-    @Column(name="descripcion")
     private String descripcion;
 
-    @Column(name="estado")
     private String estado;
 
-    @Column(name = "tipo")
     private String tipo;
 
-    public PQRSDTO(Long id, LocalDate fechaCreacion, String asunto, String descripcion, String estado, String tipo) {
-        this.id = id;
+    public PQRSDTO() {
+    }
+
+    public PQRSDTO(LocalDate fechaCreacion, String asunto, String descripcion, String estado, String tipo) {
         this.fechaCreacion = fechaCreacion;
         this.asunto = asunto;
         this.descripcion = descripcion;
         this.estado = estado;
         this.tipo = tipo;
-    }
-
-    public PQRSDTO() {
     }
 
     public Long getId() {
@@ -85,5 +73,17 @@ public class PQRSDTO {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "PQRS{" +
+                "id=" + id +
+                ", fechaCreacion=" + fechaCreacion +
+                ", asunto='" + asunto + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", tipo='" + tipo + '\'' +
+                '}';
     }
 }
