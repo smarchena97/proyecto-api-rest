@@ -73,4 +73,18 @@ public class PQRSStepDefs {
 	      assertThat(pqrsList.get(0).getTipo()).isEqualTo("Pregunta");
 	      
 	   }
+
+	   @Given("Al menos una PQRS en la base de datos")
+		public void listarPqrs(){
+
+		   List<PQRS>pqrsList=pqrsRepository.findAll();
+
+		   //el for se usa para mostrar los datos guardados en la lista
+		   for (PQRS misPqrs: pqrsList) {
+			   System.out.println(misPqrs);
+		   }
+
+	   }
+
+
 }
