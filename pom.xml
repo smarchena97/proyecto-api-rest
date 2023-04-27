@@ -43,10 +43,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		   <groupId>io.cucumber</groupId>
-		   <artifactId>cucumber-java</artifactId>
-		   <version>6.11.0</version>
-		   <scope>test</scope>
+    		<groupId>io.cucumber</groupId>
+    		<artifactId>cucumber-java</artifactId>
+    		<version>6.10.4</version>
+    		<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -57,12 +57,36 @@
 		</dependency>
 		
 		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.13.2</version>
-		    <scope>test</scope>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.13.2</version>
+		  <scope>test</scope>
 		</dependency>
 
+		
+		<dependency>
+		    <groupId>org.springdoc</groupId>
+		    <artifactId>springdoc-openapi-ui</artifactId>
+		    <version>1.6.4</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.hibernate.validator</groupId>
+		  <artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.webjars</groupId>
+		  <artifactId>swagger-ui</artifactId>
+		  <version>3.46.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>edu.uniquindio.ingesi.ingsoft3</groupId>
+			<artifactId>proyecto</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

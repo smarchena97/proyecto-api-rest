@@ -2,47 +2,42 @@ package co.edu.uniquindio.apirest.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-@Entity //aqui era el PQRSDTO 
+import co.edu.uniquindio.apirest.constants.EstadoEnum;
+import co.edu.uniquindio.apirest.constants.TipoEnum;
+
+@Entity 
 @Table(name = "pqrs")
 public class PQRS {
 
-	/*
-	 * citando a San GPT: En resumen, un DTO se utiliza para transferir datos entre
-	 * capas de la aplicación, mientras que una entidad se utiliza para representar
-	 * una tabla en una base de datos relacional.
-	 * 
-	 * Tiene invertido el DTO y la entity.
-	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "fecha")
-	private LocalDate fechaCreacion;
+	@Column(name = "nombre")
+	private String nombre;
 
-	@Column(name = "asunto")
-	private String asunto;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo")
+	private TipoEnum tipo;
+
+	@Column(name = "tema")
+	private String tema;
 
 	@Column(name = "descripcion")
 	private String descripcion;
 
-	@Column(name = "estado")
-	private String estado;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "estatus")
+	private EstadoEnum estatus;
 
-	@Column(name = "tipo")
-	private String tipo;
+	@Column(name = "fecha_creacion")
+	private LocalDateTime fechaCreacion;
 
-	public PQRS(Long id, LocalDate fechaCreacion, String asunto, String descripcion, String estado, String tipo) {
-		this.id = id;
-		this.fechaCreacion = fechaCreacion;
-		this.asunto = asunto;
-		this.descripcion = descripcion;
-		this.estado = estado;
-		this.tipo = tipo;
-	}
+	@Column(name = "fecha_actualizacion")
+	private LocalDateTime fechaActualizacion;
 
 	public PQRS() {
 	}
@@ -55,20 +50,28 @@ public class PQRS {
 		this.id = id;
 	}
 
-	public LocalDate getFechaCreacion() {
-		return fechaCreacion;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setFechaCreacion(LocalDate fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public String getAsunto() {
-		return asunto;
+	public TipoEnum getTipo() {
+		return tipo;
 	}
 
-	public void setAsunto(String asunto) {
-		this.asunto = asunto;
+	public void setTipo(TipoEnum tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String tema) {
+		this.tema = tema;
 	}
 
 	public String getDescripcion() {
@@ -79,19 +82,43 @@ public class PQRS {
 		this.descripcion = descripcion;
 	}
 
-	public String getEstado() {
-		return estado;
+	public EstadoEnum getEstatus() {
+		return estatus;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setEstatus(EstadoEnum estatus) {
+		this.estatus = estatus;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public LocalDateTime getFechaCreacion() {
+		return fechaCreacion;
 	}
 
-	public void setTipo(String tipo) {
+	public void setFechaCreacion(LocalDateTime fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public LocalDateTime getFechaActualizacion() {
+		return fechaActualizacion;
+	}
+
+	public void setFechaActualizacion(LocalDateTime fechaActualizacion) {
+		this.fechaActualizacion = fechaActualizacion;
+	}
+
+
+	public PQRS(Long id, String nombre, TipoEnum tipo, String tema, String descripcion, EstadoEnum estatus,
+			LocalDateTime fechaCreacion, LocalDateTime fechaActualizacion) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
 		this.tipo = tipo;
+		this.tema = tema;
+		this.descripcion = descripcion;
+		this.estatus = estatus;
+		this.fechaCreacion = fechaCreacion;
+		this.fechaActualizacion = fechaActualizacion;
 	}
+	
+	
 }
